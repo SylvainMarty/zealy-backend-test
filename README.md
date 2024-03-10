@@ -58,16 +58,24 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## File structure
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```
+src/
+├── api/                    Contains everything related to the Rest API layer
+└── quest/                  The module for the quest business code
+└── user/                   The module for the user business code
+└── access-control-list/    The module for the access-control-list business code
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+├── config/                 NestJS app config module
+├── shared                  Contains classes & helpers shared with all modules
+    ├── entities            MikroORM entities
+    ├── repositories        MikroORM custom repositories
+    ├── import-strategies   Contains the module and the strategies to import companies data
+    ├── commands/           Command & handlers that can write the DB
+    │   ├── handlers
+    │   └── impl
+    └── queries/            Query & handlers that can read the DB
+        ├── handlers
+        └── impl
+```
